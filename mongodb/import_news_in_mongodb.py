@@ -1,7 +1,6 @@
 from pymongo import MongoClient
-import json
 import pandas as pd
-from support_function import doubledecode
+from functions.support_function import doubledecode
 
 client = MongoClient('192.168.195.129', 27017)
 print("Load news")

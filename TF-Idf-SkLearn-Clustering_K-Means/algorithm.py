@@ -1,27 +1,18 @@
 from __future__ import print_function
-import numpy as np
 import pandas as pd
 import nltk
 #nltk.download('punkt')
 #nltk.download('stopwords')
-import re
-import os
-import codecs
-from sklearn import feature_extraction
-import mpld3
 from nltk.stem.snowball import SnowballStemmer
-import email
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import KMeans
-from sklearn.externals import joblib
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import random
 from sklearn.manifold import MDS
 from pymongo import MongoClient
-from support_function import doubledecode
+from mongodb.get_data_from_mongo import read_data_mongo
 global map_check_token
 global map_check_stem
 
@@ -71,10 +62,7 @@ def tokenize_only(text):
 
 
 # Input
-
-client = MongoClient('192.168.195.129', 27017)
-news_collection = client.fairvalyou.news
-news_df = pd.DataFrame(news_collection.find())
+news_df = read_data_mongo( '192.168.195.129', 27017, 'fairvalyou','news')
 print(news_df.columns)
 
 # Initial the contents of emails into vectors

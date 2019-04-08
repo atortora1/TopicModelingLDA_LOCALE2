@@ -37,7 +37,7 @@ if __name__ == '__main__':
     #dim_dataframe = int(len(news_df) / num_proc)
     dim_dataframe = 2
     processes = []
-    for i in range(0, num_proc ):
+    for i in range(0, num_proc):
         p = Process(target=tokenize_worker,
                     args=(news_df.iloc[int(i * dim_dataframe):int((i + 1) * dim_dataframe - 1)], result_tokenize))
         p.start()

@@ -62,21 +62,15 @@ from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.pipeline import make_pipeline, Pipeline
 from sklearn.preprocessing import Normalizer
-from sklearn import metrics
-from sklearn.manifold import MDS
-from sklearn.cluster import KMeans, MiniBatchKMeans,SpectralClustering,AgglomerativeClustering
+from sklearn.cluster import KMeans, MiniBatchKMeans
 #from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.metrics import pairwise_distances
 import logging
 from optparse import OptionParser
 import sys
 from time import time
 from pymongo import MongoClient
-import matplotlib.pyplot as plt
 import random
-import pprint
-import numpy as np
-from support_function import *
+
 # Display progress logs on stdout
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(message)s')
@@ -177,7 +171,7 @@ else:
 pipeline = Pipeline([
      ('to_dense', DenseTransformer())
 ])
-document
+
 X = vectorizer.fit_transform(document)
 
 print("done in %fs" % (time() - t0))
